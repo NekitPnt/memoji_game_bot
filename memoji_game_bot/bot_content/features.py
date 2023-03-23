@@ -1,4 +1,4 @@
-from tg_bot_template.bot_content.classes import Feature, Button
+from memoji_game_bot.bot_content.classes import Feature, Button
 
 ping_ftr = Feature(
     commands=["ping", "health", "healthcheck"],

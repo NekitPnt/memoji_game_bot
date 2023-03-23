@@ -1,5 +1,4 @@
 import asyncio
-import os
 import aioschedule
 from loguru import logger
 
@@ -9,10 +8,10 @@ from aiogram.dispatcher import Dispatcher, FSMContext
 from aiogram.dispatcher.filters import Text
 from aiogram.utils import executor
 
-from tg_bot_template.config import settings
-from tg_bot_template.bot_content import features
-from tg_bot_template.db_infra import db
-from tg_bot_template.bot_infra.filters import RegistrationFilter, NonRegistrationFilter, CreatorFilter
+from memoji_game_bot.config import settings
+from memoji_game_bot.bot_content import features
+from memoji_game_bot.db_infra import db
+from memoji_game_bot.bot_infra.filters import RegistrationFilter, NonRegistrationFilter, CreatorFilter
 
 bot = Bot(token=settings.tg_bot_token)
 storage = MemoryStorage()

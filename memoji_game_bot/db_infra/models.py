@@ -4,7 +4,7 @@ import peewee_async
 import playhouse.migrate
 from loguru import logger
 
-from tg_bot_template.config import settings
+from memoji_game_bot.config import settings
 
 # -------------------------------------------- DB INIT --------------------------------------------
 database = peewee_async.PooledPostgresqlDatabase(
@@ -57,7 +57,7 @@ def make_migrations():
         pass
 
 
-# psql postgresql://tg_bot_template:tg_bot_template@localhost:5432/tg_bot_template
+# psql postgresql://memoji_game_bot:memoji_game_bot@localhost:5432/memoji_game_bot
 # dev_drop_tables(database, ALL_TABLES)
 create_tables(database, ALL_TABLES)
 make_migrations()

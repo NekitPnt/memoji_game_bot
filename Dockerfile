@@ -1,10 +1,10 @@
-FROM python:3.9
+FROM python:3.10
 # set work directory
-WORKDIR /usr/src/tg_bot_template/
+WORKDIR /usr/src/memoji_game_bot/
 # copy project
-COPY . /usr/src/tg_bot_template/
+COPY . /usr/src/memoji_game_bot/
 # install dependencies
 #RUN pip install --upgrade pip
 RUN pip install --user -r requirements.txt
 # run app
-CMD ["python", "-m", "tg_bot_template.bot"]
+CMD ["python", "-m", "memoji_game_bot.bot"]

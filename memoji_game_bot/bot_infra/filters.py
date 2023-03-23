@@ -1,8 +1,8 @@
 from aiogram import types
 from aiogram.dispatcher.filters import BoundFilter
 
-from tg_bot_template.config import settings
-from tg_bot_template.db_infra.db import check_user_registered
+from memoji_game_bot.config import settings
+from memoji_game_bot.db_infra.db import check_user_registered
 
 
 class AbsFilter(BoundFilter):

@@ -4,10 +4,10 @@ volumes:
   pg_project:
 
 services:
-  db:
+  pg_db:
     image: postgres:latest
     restart: always
-    container_name: tg_bot_template_db
+    container_name: memoji_game_bot_postgres
     env_file:
       - .env
     environment:
@@ -15,15 +15,15 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
-      - pg_project:/var/lib/postgresql/tg_bot_template
+      - pg_project:/var/lib/postgresql/memoji_game_bot
     ports:
       - "5432:5432"
 
   onboarding_bot:
-    container_name: tg_bot_template
+    container_name: memoji_game_bot
     build: .
     env_file:
       - .env
     restart: always
     depends_on:
-      - db
+      - pg_db
