@@ -8,6 +8,7 @@ services:
     image: postgres:latest
     restart: always
     container_name: memoji_game_bot_postgres
+    hostname: ${POSTGRES_HOST}
     env_file:
       - .env
     environment:
@@ -19,7 +20,16 @@ services:
     ports:
       - "5432:5432"
 
-  onboarding_bot:
+  redis_fsm:
+    image: redis:latest
+    hostname: ${FSM_REDIS_HOST:-localhost}
+    command: redis-server --requirepass "${FSM_REDIS_PASS:-}"
+    env_file:
+      - .env
+    ports:
+      - "6379:6379"
+
+  tg_bot:
     container_name: memoji_game_bot
     build: .
     env_file:
@@ -27,3 +37,4 @@ services:
     restart: always
     depends_on:
       - pg_db
+      - redis_fsm
